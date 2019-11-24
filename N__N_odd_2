@@ -1,0 +1,35 @@
+# Day14-11-21
+//解此题版本二：（自写）
+
+【标题】：尼科彻斯定理 | 验证尼科彻斯定理，即：任何一个整数m的立方都可以写成m个连续奇数之和。
+【解题思路】：输入的一个整数m，
+              组成它的m个奇数的第一个奇数是m*m-m+1;
+              而且题目也已经给出组成这个数的奇数个数是它自身个。
+import java.util.Scanner;
+
+public class Day13_2 {
+    public String GetSequeOddNum(int m){
+        int count=m;
+        String s="";
+        for(int i=m*m-m+1;i<m*m*m;i+=2){
+            if (count>1) {
+                s=s+i+"+";
+            }else {
+                if(count==1){
+                    s=s+i;
+                    break;
+                }
+            }
+            count--;
+        }
+        return s;
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        Day13_2 day13_2=new Day13_2();
+        while (sc.hasNext()) {
+            int m = sc.nextInt();
+            System.out.println(day13_2.GetSequeOddNum(m));
+        }
+    }
+}
